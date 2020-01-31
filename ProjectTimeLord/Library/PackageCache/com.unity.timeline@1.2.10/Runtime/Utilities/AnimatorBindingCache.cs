@@ -89,7 +89,7 @@ namespace UnityEngine.Timeline
             if (!m_ClipCache.TryGetValue(clip, out result))
             {
                 result = AnimationMode.GetCurveBindings(clip);
-                UpdateTransformBindings(result);
+                //UpdateTransformBindings(result);
                 m_ClipCache[clip] = result;
             }
 
