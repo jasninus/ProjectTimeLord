@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(RepairableEditor))]
-public class Repairable : MonoBehaviour
+public class Repairable : MonoBehaviour, IRewindable
 {
     [SerializeField] private float repairTime;
 
@@ -18,20 +18,28 @@ public class Repairable : MonoBehaviour
 
     private List<RepairableTransform> childTransforms = new List<RepairableTransform>();
 
+    private bool repairing;
+
     private void Awake()
     {
         childTransforms = GetComponent<RepairableEditor>().GetChildFixedTransforms();
-        Debug.Log($"Awoken with {childTransforms.Count} children");
-
-        Invoke("Repair", 3);
     }
 
-    private void Repair()
+    public void StartRewind()
     {
-        Debug.Log("Starting repair");
-        foreach (RepairableTransform trans in childTransforms)
+        if (repairing)
         {
-            trans.transform.GetComponent<Rigidbody2D>().isKinematic = true;
+            return;
+        }
+
+        repairing = true;
+
+        for (int i = 0; i < childTransforms.Count; i++)
+        {
+            Rigidbody2D rb = childTransforms[i].transform.GetComponent<Rigidbody2D>();
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            rb.isKinematic = true;
+            rb.velocity = Vector2.zero;
         }
 
         StartCoroutine(Repairing());
@@ -105,6 +113,7 @@ public class Repairable : MonoBehaviour
         for (int i = 0; i < rigidbodyActivateOnRepair.Count; i++)
         {
             rigidbodyActivateOnRepair[i].isKinematic = false;
+            rigidbodyActivateOnRepair[i].velocity = Vector2.zero;
         }
     }
 
