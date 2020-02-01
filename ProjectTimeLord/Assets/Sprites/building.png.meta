@@ -1022,8 +1022,8 @@ TextureImporter:
       name: building_36
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
+        x: 1152
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -1043,7 +1043,7 @@ TextureImporter:
       name: building_37
       rect:
         serializedVersion: 2
-        x: 128
+        x: 0
         y: 384
         width: 128
         height: 128
@@ -1064,7 +1064,7 @@ TextureImporter:
       name: building_38
       rect:
         serializedVersion: 2
-        x: 256
+        x: 128
         y: 384
         width: 128
         height: 128
@@ -1085,7 +1085,7 @@ TextureImporter:
       name: building_39
       rect:
         serializedVersion: 2
-        x: 384
+        x: 256
         y: 384
         width: 128
         height: 128
@@ -1106,7 +1106,7 @@ TextureImporter:
       name: building_40
       rect:
         serializedVersion: 2
-        x: 512
+        x: 384
         y: 384
         width: 128
         height: 128
@@ -1127,7 +1127,7 @@ TextureImporter:
       name: building_41
       rect:
         serializedVersion: 2
-        x: 640
+        x: 512
         y: 384
         width: 128
         height: 128
@@ -1148,7 +1148,7 @@ TextureImporter:
       name: building_42
       rect:
         serializedVersion: 2
-        x: 768
+        x: 640
         y: 384
         width: 128
         height: 128
@@ -1211,8 +1211,8 @@ TextureImporter:
       name: building_45
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
+        x: 1152
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -1232,7 +1232,7 @@ TextureImporter:
       name: building_46
       rect:
         serializedVersion: 2
-        x: 128
+        x: 0
         y: 256
         width: 128
         height: 128
@@ -1253,7 +1253,7 @@ TextureImporter:
       name: building_47
       rect:
         serializedVersion: 2
-        x: 256
+        x: 128
         y: 256
         width: 128
         height: 128
@@ -1274,7 +1274,7 @@ TextureImporter:
       name: building_48
       rect:
         serializedVersion: 2
-        x: 384
+        x: 256
         y: 256
         width: 128
         height: 128
@@ -1295,7 +1295,7 @@ TextureImporter:
       name: building_49
       rect:
         serializedVersion: 2
-        x: 512
+        x: 384
         y: 256
         width: 128
         height: 128
@@ -1316,8 +1316,8 @@ TextureImporter:
       name: building_50
       rect:
         serializedVersion: 2
-        x: 768
-        y: 256
+        x: 0
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -1337,8 +1337,8 @@ TextureImporter:
       name: building_51
       rect:
         serializedVersion: 2
-        x: 896
-        y: 256
+        x: 128
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -1358,7 +1358,7 @@ TextureImporter:
       name: building_52
       rect:
         serializedVersion: 2
-        x: 0
+        x: 256
         y: 128
         width: 128
         height: 128
@@ -1379,7 +1379,7 @@ TextureImporter:
       name: building_53
       rect:
         serializedVersion: 2
-        x: 128
+        x: 384
         y: 128
         width: 128
         height: 128
@@ -1400,7 +1400,7 @@ TextureImporter:
       name: building_54
       rect:
         serializedVersion: 2
-        x: 256
+        x: 512
         y: 128
         width: 128
         height: 128
