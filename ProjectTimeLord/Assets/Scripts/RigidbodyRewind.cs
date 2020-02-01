@@ -62,7 +62,6 @@ public class RigidbodyRewind : TransformRewind
         base.StopRewind();
         rb.isKinematic = false;
         SetActiveBehavioursForRewind(true);
-        Debug.Log($"RB velocity: {rb.velocity}");
     }
 
     protected void ApplyTimePoint(RigidbodyTimePoint tp)
@@ -77,7 +76,6 @@ public class RigidbodyRewind : TransformRewind
 
         if (timePoints.Count >= rewindableFrames && timePoints.Count > 0)
         {
-            Debug.Log("Removing time point");
             RemoveOldestTimePoint();
         }
 
