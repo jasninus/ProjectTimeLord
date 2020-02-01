@@ -1,26 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class TransformRewindReset : TransformRewind
+public class TransformRewindReset : TransformRewind, IResettable
 {
     private List<TransformTimePoint> resetTimePoints = new List<TransformTimePoint>();
 
-    [SerializeField] private bool reset;
+    [SerializeField] private float delayPerFrameRewind, delayDecreasePerRewoundFrame;
 
     [SerializeField] private byte skipFrames;
     private byte saveFrameCounter;
 
-    private void Update()
-    {
-        if (reset)
-        {
-            reset = false;
-            RewindReset();
-        }
-    }
+    public Action onResetFinish;
 
-    private void RewindReset()
+    public void ResetObject()
     {
         StartRewind();
         StartCoroutine(RewindingReset());
@@ -28,8 +23,21 @@ public class TransformRewindReset : TransformRewind
 
     private IEnumerator RewindingReset()
     {
-        //yield return new WaitUntil(() => );
-        yield return null;
+        yield return new WaitUntil(() => !IsRewinding);
+
+        float rewindDelay = delayPerFrameRewind;
+        int tpCount = resetTimePoints.Count;
+
+        for (int i = tpCount - 1; i >= 0; i--)
+        {
+            ApplyTimePoint(resetTimePoints[i]);
+            yield return new WaitForSeconds(rewindDelay);
+            rewindDelay -= delayDecreasePerRewoundFrame;
+        }
+
+        onResetFinish?.Invoke();
+        resetTimePoints.Clear();
+        timePoints.Clear();
     }
 
     protected override void RemoveOldestTimePoint()

@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 192394982}
   - component: {fileID: 192394981}
   - component: {fileID: 192394983}
+  - component: {fileID: 192394984}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -264,6 +265,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b7128b725698745a62974fc1abf764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &192394984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192394978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &194081031
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +295,7 @@ GameObject:
   - component: {fileID: 194081035}
   - component: {fileID: 194081034}
   - component: {fileID: 194081036}
+  - component: {fileID: 194081037}
   m_Layer: 0
   m_Name: Square (5)
   m_TagString: Untagged
@@ -407,6 +426,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b7128b725698745a62974fc1abf764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &194081037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194081031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &279234034
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +525,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &313636173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 313636175}
+  - component: {fileID: 313636174}
+  m_Layer: 0
+  m_Name: LevelReset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &313636174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313636173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19b2d0876cd4114e814a8d16bc3dd42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetObjects:
+  - {fileID: 335576086}
+  - {fileID: 401788821}
+  - {fileID: 1884880925}
+  - {fileID: 930616914}
+  - {fileID: 1713665010}
+  - {fileID: 1414936178}
+  - {fileID: 2055401813}
+  - {fileID: 2092855633}
+  - {fileID: 1139625716}
+  - {fileID: 550384445}
+  - {fileID: 1394280152}
+  - {fileID: 400314197}
+  - {fileID: 853599485}
+  - {fileID: 192394978}
+  - {fileID: 1095084132}
+  - {fileID: 1674539686}
+  - {fileID: 1679288863}
+  - {fileID: 194081031}
+  - {fileID: 1123553232}
+  - {fileID: 1426926274}
+  testReset: 0
+--- !u!4 &313636175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313636173}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &335576086
 GameObject:
@@ -797,6 +898,7 @@ GameObject:
   - component: {fileID: 401788825}
   - component: {fileID: 401788824}
   - component: {fileID: 401788823}
+  - component: {fileID: 401788827}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -927,6 +1029,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &401788827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401788821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &550384445
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,6 +1059,7 @@ GameObject:
   - component: {fileID: 550384449}
   - component: {fileID: 550384448}
   - component: {fileID: 550384447}
+  - component: {fileID: 550384451}
   m_Layer: 0
   m_Name: Square (8)
   m_TagString: Untagged
@@ -1070,6 +1190,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &550384451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550384445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &594532967
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,6 +1250,7 @@ GameObject:
   - component: {fileID: 853599489}
   - component: {fileID: 853599488}
   - component: {fileID: 853599490}
+  - component: {fileID: 853599491}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -1243,6 +1381,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b7128b725698745a62974fc1abf764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &853599491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853599485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &930616914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1411,7 @@ GameObject:
   - component: {fileID: 930616918}
   - component: {fileID: 930616917}
   - component: {fileID: 930616916}
+  - component: {fileID: 930616920}
   m_Layer: 0
   m_Name: Square (2)
   m_TagString: Untagged
@@ -1386,6 +1542,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &930616920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930616914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &1095084132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,6 +1572,7 @@ GameObject:
   - component: {fileID: 1095084136}
   - component: {fileID: 1095084135}
   - component: {fileID: 1095084137}
+  - component: {fileID: 1095084138}
   m_Layer: 0
   m_Name: Square (2)
   m_TagString: Untagged
@@ -1529,6 +1703,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b7128b725698745a62974fc1abf764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1095084138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095084132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &1116073580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,6 +1834,7 @@ GameObject:
   - component: {fileID: 1123553236}
   - component: {fileID: 1123553235}
   - component: {fileID: 1123553237}
+  - component: {fileID: 1123553238}
   m_Layer: 0
   m_Name: Square (6)
   m_TagString: Untagged
@@ -1773,6 +1965,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b7128b725698745a62974fc1abf764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1123553238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123553232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &1139625716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,6 +1995,7 @@ GameObject:
   - component: {fileID: 1139625720}
   - component: {fileID: 1139625719}
   - component: {fileID: 1139625718}
+  - component: {fileID: 1139625722}
   m_Layer: 0
   m_Name: Square (7)
   m_TagString: Untagged
@@ -1916,6 +2126,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1139625722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139625716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &1194523218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2198,6 +2425,7 @@ GameObject:
   - component: {fileID: 1394280155}
   - component: {fileID: 1394280157}
   - component: {fileID: 1394280158}
+  - component: {fileID: 1394280159}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2353,6 +2581,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxRewindableSeconds: 5
   isRewinding: 0
+--- !u!114 &1394280159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394280152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 5
+  isRewinding: 0
+  delayPerFrameRewind: 0.015
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 2
 --- !u!1 &1414936178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2366,6 +2611,7 @@ GameObject:
   - component: {fileID: 1414936182}
   - component: {fileID: 1414936181}
   - component: {fileID: 1414936180}
+  - component: {fileID: 1414936184}
   m_Layer: 0
   m_Name: Square (4)
   m_TagString: Untagged
@@ -2496,6 +2742,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1414936184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414936178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &1426926274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2509,6 +2772,7 @@ GameObject:
   - component: {fileID: 1426926278}
   - component: {fileID: 1426926277}
   - component: {fileID: 1426926279}
+  - component: {fileID: 1426926280}
   m_Layer: 0
   m_Name: Square (7)
   m_TagString: Untagged
@@ -2639,6 +2903,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b7128b725698745a62974fc1abf764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1426926280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426926274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &1674539686
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,6 +2933,7 @@ GameObject:
   - component: {fileID: 1674539690}
   - component: {fileID: 1674539689}
   - component: {fileID: 1674539691}
+  - component: {fileID: 1674539692}
   m_Layer: 0
   m_Name: Square (3)
   m_TagString: Untagged
@@ -2782,6 +3064,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b7128b725698745a62974fc1abf764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1674539692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674539686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &1679288863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2795,6 +3094,7 @@ GameObject:
   - component: {fileID: 1679288867}
   - component: {fileID: 1679288866}
   - component: {fileID: 1679288868}
+  - component: {fileID: 1679288869}
   m_Layer: 0
   m_Name: Square (4)
   m_TagString: Untagged
@@ -2925,6 +3225,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b7128b725698745a62974fc1abf764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1679288869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679288863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &1713665010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2938,6 +3255,7 @@ GameObject:
   - component: {fileID: 1713665014}
   - component: {fileID: 1713665013}
   - component: {fileID: 1713665012}
+  - component: {fileID: 1713665016}
   m_Layer: 0
   m_Name: Square (3)
   m_TagString: Untagged
@@ -3068,6 +3386,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1713665016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713665010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &1884880925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3081,6 +3416,7 @@ GameObject:
   - component: {fileID: 1884880929}
   - component: {fileID: 1884880928}
   - component: {fileID: 1884880927}
+  - component: {fileID: 1884880931}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -3211,6 +3547,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1884880931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884880925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &2055401813
 GameObject:
   m_ObjectHideFlags: 0
@@ -3224,6 +3577,7 @@ GameObject:
   - component: {fileID: 2055401817}
   - component: {fileID: 2055401816}
   - component: {fileID: 2055401815}
+  - component: {fileID: 2055401819}
   m_Layer: 0
   m_Name: Square (5)
   m_TagString: Untagged
@@ -3354,6 +3708,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2055401819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055401813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4
 --- !u!1 &2092855633
 GameObject:
   m_ObjectHideFlags: 0
@@ -3367,6 +3738,7 @@ GameObject:
   - component: {fileID: 2092855637}
   - component: {fileID: 2092855636}
   - component: {fileID: 2092855635}
+  - component: {fileID: 2092855639}
   m_Layer: 0
   m_Name: Square (6)
   m_TagString: Untagged
@@ -3497,3 +3869,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2092855639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092855633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5c5f3e528a044e9ac092c92f7b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRewindableSeconds: 0
+  isRewinding: 0
+  delayPerFrameRewind: 0.025
+  delayDecreasePerRewoundFrame: 0.000005
+  skipFrames: 4

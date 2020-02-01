@@ -23,6 +23,8 @@ public class TransformRewind : MonoBehaviour, IRewindable
 
     [SerializeField] private bool isRewinding;
 
+    public bool IsRewinding => isRewinding;
+
     private void FixedUpdate()
     {
         if (!isRewinding)
@@ -42,9 +44,9 @@ public class TransformRewind : MonoBehaviour, IRewindable
             return;
         }
 
-        if (timePoints.Count > 0)
+        if (timePoints.Count > 1)
         {
-            ApplyTimePoint();
+            ApplyTimePoint(timePoints.Last());
             timePoints.RemoveAt(timePoints.Count - 1);
         }
         else
@@ -53,9 +55,8 @@ public class TransformRewind : MonoBehaviour, IRewindable
         }
     }
 
-    private void ApplyTimePoint()
+    protected void ApplyTimePoint(TransformTimePoint tp)
     {
-        TransformTimePoint tp = timePoints.Last();
         transform.position = tp.position;
         transform.rotation = tp.rotation;
     }
@@ -74,7 +75,7 @@ public class TransformRewind : MonoBehaviour, IRewindable
     {
         float rewindableFrames = maxRewindableSeconds / Time.fixedDeltaTime;
 
-        if (timePoints.Count >= rewindableFrames)
+        if (timePoints.Count >= rewindableFrames && timePoints.Count > 0)
         {
             RemoveOldestTimePoint();
         }
@@ -84,7 +85,10 @@ public class TransformRewind : MonoBehaviour, IRewindable
 
     protected virtual void RemoveOldestTimePoint()
     {
-        timePoints.RemoveAt(0);
+        if (timePoints.Count > 0)
+        {
+            timePoints.RemoveAt(0);
+        }
     }
 
     protected virtual void AddNewTimePoint()

@@ -1,4 +1,6 @@
-﻿public interface IResettable
+﻿using System;
+
+public interface IResettable
 {
-    void Reset();
+    void ResetObject();
 }
