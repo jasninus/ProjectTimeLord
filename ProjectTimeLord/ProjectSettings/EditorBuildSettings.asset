@@ -5,10 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Sandstorm Folder/Menu.unity
     guid: 87f658d8eb7852f41ae53052dd84b4ad
-  - enabled: 1
+  - enabled: 0
     path: Assets/Sandstorm Folder/GameTestScene.unity
     guid: 3223cbea788cc5b48991a9492ace6896
+  - enabled: 1
+    path: Assets/Scenes/MusicMaster.unity
+    guid: bd10c3b0c55d09f4b8734689a8dc1fa6
+  - enabled: 1
+    path: Assets/Scenes/test2.unity
+    guid: 08cff7861217cae4088d811522ecdcc6
   m_configObjects: {}
