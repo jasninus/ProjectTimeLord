@@ -17,7 +17,7 @@ public struct TimePoint
 }
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class TransformRewind : MonoBehaviour
+public class TransformRewind : MonoBehaviour, IRewindable
 {
     [SerializeField] private float maxRewindableSeconds;
 
