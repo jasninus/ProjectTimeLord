@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class TimeScaled : MonoBehaviour
 {
-    [SerializeField] private float timeScale;
+    [SerializeField] private float timeScale = 1;
 
     private float prevFrameTimeScale;
 

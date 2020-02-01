@@ -21,9 +21,9 @@ EditorBuildSettings:
     path: Assets/2DPlatformerBaseGame/Scenes/TEST.unity
     guid: 63a256fc803914a4aa207168d62f18e6
   - enabled: 1
-    path: Assets/NewScene.unity
+    path: Assets/Scenes/AyransThingymabob.unity
     guid: a57ed9efad2532e478949d813f4704e0
   - enabled: 1
-    path: Assets/2DPlatformerBaseGame/Scenes/Enemy.unity
+    path: Assets/Scenes/Enemy.unity
     guid: d97d6fc1287ba4941a5528a27d239f36
   m_configObjects: {}

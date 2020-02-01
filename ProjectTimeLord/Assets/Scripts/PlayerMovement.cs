@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Destroy it
             //Destroy(hit.collider.gameObject);
-            Debug.Log("Hitting Something");
+            //Debug.Log("Hitting Something");
             // Return true
             return true;
         }

@@ -17,7 +17,7 @@ public struct TransformTimePoint
 
 public class TransformRewind : MonoBehaviour, IRewindable
 {
-    [SerializeField] private float maxRewindableSeconds;
+    [SerializeField] protected float maxRewindableSeconds;
 
     protected List<TransformTimePoint> timePoints = new List<TransformTimePoint>();
 
@@ -44,6 +44,11 @@ public class TransformRewind : MonoBehaviour, IRewindable
             return;
         }
 
+        CheckApplyTimePoint();
+    }
+
+    protected virtual void CheckApplyTimePoint()
+    {
         if (timePoints.Count > 1)
         {
             ApplyTimePoint(timePoints.Last());
@@ -71,7 +76,7 @@ public class TransformRewind : MonoBehaviour, IRewindable
         isRewinding = false;
     }
 
-    private void PushCurrentTimePoint()
+    protected virtual void PushCurrentTimePoint()
     {
         float rewindableFrames = maxRewindableSeconds / Time.fixedDeltaTime;
 

@@ -7,8 +7,8 @@ using UnityEngine;
 public class EnemyPatrol : MonoBehaviour
 {
     protected Vector2 moveVector;
-    public Vector2 MoveVector { get { return moveVector; } }
-    
+    public Vector2 MoveVector => moveVector;
+
     public float speed = 10;
     public bool useGravity = false;
     public float gravity = 10f;
@@ -114,7 +114,6 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-
     public void ForceTurn()
     {
         canTurn = false;
@@ -147,12 +146,10 @@ public class EnemyPatrol : MonoBehaviour
 
         animator.SetTrigger(hashDeathParameter);
 
-       /* if (dieAudio != null)
-            dieAudio.PlayRandomSound();*/
+        /* if (dieAudio != null)
+             dieAudio.PlayRandomSound();*/
 
         dead = true;
-
-       
     }
 
     public void Hit(Damager damager, Damageable damageable)
@@ -162,7 +159,6 @@ public class EnemyPatrol : MonoBehaviour
 
         moveVector += knockback;
 
-
         if (flickeringCoroutine != null)
         {
             StopCoroutine(flickeringCoroutine);
@@ -170,7 +166,6 @@ public class EnemyPatrol : MonoBehaviour
         }
 
         flickeringCoroutine = StartCoroutine(Flicker(damageable));
-    
     }
 
     protected IEnumerator Flicker(Damageable damageable)

@@ -1,26 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 #if UNITY_EDITOR
+
 using UnityEditor;
+
 #endif
 
-[RequireComponent(typeof(CharacterController2D))]
-[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Collider2D), typeof(CharacterController2D))]
 public class EnemyBehaviour : MonoBehaviour
 {
-
-    static Collider2D[] colliderCache = new Collider2D[16];
+    private static Collider2D[] colliderCache = new Collider2D[16];
 
     protected Vector3 moveVector;
-    public Vector3 MoveVector { get { return moveVector; } }
+    public Vector3 MoveVector => moveVector;
     protected Transform target;
-    public Transform Target { get { return target; } }
+    public Transform Target => target;
 
     public bool spriteFaceLeft = false;
 
     [Header("Movement")]
     public float speed;
+
     public float gravity = 10.0f;
 
     [Header("References")]
@@ -28,6 +30,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     [Header("Patrol Settings")]
     public LayerMask obstacles;
+
     public float obstacleViewDistance = 0.3f;
     public bool usePatrolBorders;
     public Vector3 patrolLeft = Vector3.zero;
@@ -36,14 +39,17 @@ public class EnemyBehaviour : MonoBehaviour
     [Header("Scanning Settings")]
     [Range(0.0f, 360.0f)]
     public float viewDirection = 0.0f;
+
     [Range(0.0f, 360.0f)]
     public float viewFOV;
+
     public float viewDistance;
     public float timeBeforeTargetLost = 3.0f;
 
     [Header("Melee Attack Data")]
     [EnemyMeleeRangeCheck]
     public float meleeRange = 3.0f;
+
     public Damager meleeDamager;
     public Damager contactDamager;
     public bool attackDash;
@@ -51,15 +57,15 @@ public class EnemyBehaviour : MonoBehaviour
 
     [Header("Range Attack Data")]
     public Transform shootingOrigin;
+
     public float shootAngle = 45.0f;
     public float shootForce = 100.0f;
     public float fireRate = 2.0f;
 
     [Header("Hurt Data")]
     public Vector2 knockback;
-    public float flickeringDuration;
 
- 
+    public float flickeringDuration;
 
     protected SpriteRenderer spriteRenderer;
     protected CharacterController2D characterController2D;
@@ -75,6 +81,7 @@ public class EnemyBehaviour : MonoBehaviour
     protected Vector2 spriteForward;
     protected Bounds localBounds;
     protected Vector3 localDamagerPosition;
+
     [HideInInspector]
     public Vector3 startPosition;
 
@@ -138,10 +145,12 @@ public class EnemyBehaviour : MonoBehaviour
             localBounds.Encapsulate(transform.InverseTransformBounds(colliderCache[i].bounds));
         }
 
-        filter = new ContactFilter2D();
-        filter.layerMask = obstacles;
-        filter.useLayerMask = true;
-        filter.useTriggers = false;
+        filter = new ContactFilter2D
+        {
+            layerMask = obstacles,
+            useLayerMask = true,
+            useTriggers = false
+        };
 
         if (meleeDamager)
             localDamagerPosition = meleeDamager.transform.localPosition;
@@ -149,7 +158,7 @@ public class EnemyBehaviour : MonoBehaviour
         startPosition = transform.position;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (dead)
             return;
@@ -165,7 +174,7 @@ public class EnemyBehaviour : MonoBehaviour
         animator.SetBool(hashGroundedParameter, characterController2D.Grounded);
     }
 
-    void UpdateTimers()
+    private void UpdateTimers()
     {
         if (timeSinceLastTargetView > 0.0f)
             timeSinceLastTargetView -= Time.deltaTime;
@@ -206,7 +215,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    IEnumerator Turn(float speed)
+    private IEnumerator Turn(float speed)
     {
         SetHorizontalSpeed(-speed);
         UpdateFacing();
@@ -421,13 +430,11 @@ public class EnemyBehaviour : MonoBehaviour
 
         animator.SetTrigger(hashDeathParameter);
 
-       /* if (dieAudio != null)
-            dieAudio.PlayRandomSound();*/
+        /* if (dieAudio != null)
+             dieAudio.PlayRandomSound();*/
 
         dead = true;
         collider.enabled = false;
-
-       
     }
 
     public void Hit(Damager damager, Damageable damageable)
@@ -494,10 +501,8 @@ public class EnemyBehaviour : MonoBehaviour
     {
         //movementAudio.PlayRandomSound();
     }
+
     public class EnemyMeleeRangeCheckAttribute : PropertyAttribute
     {
-
     }
-
-
 }
