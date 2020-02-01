@@ -5,10 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/2DPlatformerBaseGame/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Sandstorm Folder/Menu.unity
-    guid: 87f658d8eb7852f41ae53052dd84b4ad
+    path: Assets/2DPlatformerBaseGame/Scenes/Start.unity
+    guid: 6c07e62cb5d7e584b86792b136a391d8
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/2DPlatformerBaseGame/Scenes/Develop.unity
+    guid: 3b6114dab679d9f4280dd495828cf300
   - enabled: 1
-    path: Assets/Sandstorm Folder/GameTestScene.unity
-    guid: 3223cbea788cc5b48991a9492ace6896
+    path: Assets/2DPlatformerBaseGame/Scenes/TEST.unity
+    guid: 63a256fc803914a4aa207168d62f18e6
+  - enabled: 1
+    path: Assets/NewScene.unity
+    guid: a57ed9efad2532e478949d813f4704e0
+  - enabled: 1
+    path: Assets/2DPlatformerBaseGame/Scenes/Enemy.unity
+    guid: d97d6fc1287ba4941a5528a27d239f36
   m_configObjects: {}
