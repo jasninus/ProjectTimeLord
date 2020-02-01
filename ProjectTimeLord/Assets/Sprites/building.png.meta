@@ -347,6 +347,21 @@ TextureImporter:
   - first:
       213: -6386803562044824069
     second: building_59
+  - first:
+      213: 7446718383847619071
+    second: building_55
+  - first:
+      213: 960601475181738944
+    second: building_56
+  - first:
+      213: 3302155326463970983
+    second: building_57
+  - first:
+      213: 3229180417360078019
+    second: building_58
+  - first:
+      213: 101907441587249532
+    second: building_59
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -1612,8 +1627,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e28eef9bc353ad270800000000000000
-      internalID: 8275985800181508142
+      spriteID: ff9bb9b6aee085760800000000000000
+      internalID: 7446718383847619071
       vertices: []
       indices: 
       edges: []
@@ -1633,8 +1648,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0a90a7236eb004c0800000000000000
-      internalID: -4323246309199799794
+      spriteID: 0cb7ce2c3fdb45d00800000000000000
+      internalID: 960601475181738944
       vertices: []
       indices: 
       edges: []
@@ -1654,8 +1669,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac357eefdc8ee3880800000000000000
-      internalID: -8629203864552778806
+      spriteID: 7ae8c0b16cc93dd20800000000000000
+      internalID: 3302155326463970983
       vertices: []
       indices: 
       edges: []
@@ -1664,8 +1679,8 @@ TextureImporter:
       name: building_58
       rect:
         serializedVersion: 2
-        x: 640
-        y: 128
+        x: 0
+        y: 0
         width: 128
         height: 128
       alignment: 0
@@ -1675,8 +1690,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 682c49c1737e019a0800000000000000
-      internalID: -6264252857783631226
+      spriteID: 3c4256c0b7a50dc20800000000000000
+      internalID: 3229180417360078019
       vertices: []
       indices: 
       edges: []
@@ -1685,8 +1700,8 @@ TextureImporter:
       name: building_59
       rect:
         serializedVersion: 2
-        x: 768
-        y: 128
+        x: 128
+        y: 0
         width: 128
         height: 128
       alignment: 0
@@ -1696,8 +1711,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf56e12cff38d57a0800000000000000
-      internalID: -6386803562044824069
+      spriteID: c71e6c7374c0a6100800000000000000
+      internalID: 101907441587249532
       vertices: []
       indices: 
       edges: []
