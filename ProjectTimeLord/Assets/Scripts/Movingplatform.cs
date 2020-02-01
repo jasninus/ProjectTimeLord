@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movingplatform : TimeScaled
 {
+    [SerializeField] private TransformRewind transformRewind;
     [SerializeField] private Transform platformOrigin;
     private Vector3 platform;
     private Vector3 originalPos;
@@ -129,35 +130,44 @@ public class Movingplatform : TimeScaled
         moveDiagRight(timeScale, travelDist, originalPos, specficiDirectionX);
     }
 
-    public void Start()
+    protected override void Start()
     {
+        base.Start();
         platform = platformOrigin.position;
         originalPos = platform;
     }
 
     public override void TimeScaledFixedUpdate(float timeScale)
     {
+        platform = platformOrigin.position;
+        if (!transformRewind.IsRewinding)
+        {
+            if (direction == 0)
+            {
+                moveLeftRight(timeScale, travelDist, originalPos);
+            }
+            if (direction == 1)
+            {
+                moveUpDown(timeScale, travelDist, originalPos);
+            }
+            if (direction == 3)
+            {
+                moveDiagBotLeftTopRight(timeScale, travelDist, originalPos, 0, 0);
+            }
+            if (direction == 4)
+            {
+                moveDiagBotRightTopLeft(timeScale, travelDist, originalPos, 1, 1);
+            }
+        }
+        
 
+
+        
     }
 
     public override void TimeScaledUpdate(float timeScale)
     {
-        if (direction == 0)
-        {
-            moveLeftRight(timeScale, travelDist, originalPos);
-        }
-        if (direction == 1)
-        {
-            moveUpDown(timeScale, travelDist, originalPos);
-        }
-        if (direction == 3)
-        {
-            moveDiagBotLeftTopRight(timeScale, travelDist, originalPos, 0, 0);
-        }
-        if (direction == 4)
-        {
-            moveDiagBotRightTopLeft(timeScale, travelDist, originalPos, 1, 1);
-        }
+
     }
 // for diagonal ones use input
 }

@@ -27,6 +27,8 @@ public class TransformRewind : MonoBehaviour, IRewindable
 
     [SerializeField] private bool isRewinding;
 
+    public bool IsRewinding => isRewinding;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
