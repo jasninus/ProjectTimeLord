@@ -118,6 +118,7 @@ public class Repairable : MonoBehaviour, IRewindable, IResettable
         for (int i = 0; i < rigidbodyActivateOnRepair.Count; i++)
         {
             rigidbodyActivateOnRepair[i].isKinematic = !value;
+            rigidbodyActivateOnRepair[i].constraints = value ? RigidbodyConstraints2D.None : RigidbodyConstraints2D.FreezeAll;
             rigidbodyActivateOnRepair[i].velocity = Vector2.zero;
         }
     }
