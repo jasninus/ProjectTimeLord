@@ -97,6 +97,7 @@ public class Repairable : MonoBehaviour, IRewindable
         {
             childTransforms[i].transform.GetComponent<Collider2D>().enabled = false;
             childTransforms[i].transform.position = childTransforms[i].position;
+            childTransforms[i].transform.rotation = childTransforms[i].rotation;
         }
     }
 

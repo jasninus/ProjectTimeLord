@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Sandstorm Folder/Menu.unity
+- path: Assets/Scenes/TimeRewindTest.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
