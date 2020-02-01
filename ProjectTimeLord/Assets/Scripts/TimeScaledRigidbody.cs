@@ -7,35 +7,49 @@ public class TimeScaledRigidbody : TimeScaled
 {
     private Rigidbody2D rb;
 
-    private bool first;
+    private Vector2 prevVelocity;
 
-    private void Awake()
+    [SerializeField] private bool doTheThing;
+
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    protected override void UpdateTimeScale()
+    protected override void Update()
     {
-        if (!first)
+        base.Update();
+
+        if (doTheThing)
         {
-            rb.mass *= TimeScale;
-            rb.velocity /= TimeScale;
-            rb.angularVelocity /= TimeScale;
+            doTheThing = false;
+            TimeScale = 0.5f;
         }
-        first = false;
-
-        //_timeScale = Mathf.Abs(value);
-
-        //rb.mass /= timeScale;
-        //rb.velocity *= timeScale;
-        //rb.angularVelocity *= timeScale;
     }
 
-    public override void TimeScaledUpdate(float timeScale)
+    protected override void UpdateTimeScale(float prevTimeScale, float newTimeScale)
     {
+        if (prevTimeScale != 0)
+        {
+            rb.velocity /= prevTimeScale;
+        }
+
+        if (newTimeScale == 0)
+        {
+            rb.velocity = Vector2.zero;
+        }
+        else
+        {
+            rb.velocity *= newTimeScale;
+        }
+
+        prevVelocity = rb.velocity;
     }
 
     public override void TimeScaledFixedUpdate(float timeScale)
     {
+        Vector2 velocityDiff = rb.velocity - prevVelocity;
+        rb.velocity += velocityDiff * (timeScale - 1);
+        prevVelocity = rb.velocity;
     }
 }

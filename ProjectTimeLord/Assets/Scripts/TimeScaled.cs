@@ -6,24 +6,36 @@ public abstract class TimeScaled : MonoBehaviour
 {
     [SerializeField] private float timeScale;
 
-    [SerializeField] private bool hasRigidbody;
+    private float prevFrameTimeScale;
 
-    public float TimeScale
+    public virtual float TimeScale
     {
         get => timeScale;
         set
         {
+            UpdateTimeScale(timeScale, value);
             timeScale = value;
-            UpdateTimeScale();
         }
     }
 
-    protected virtual void UpdateTimeScale()
+    protected virtual void Start()
+    {
+        prevFrameTimeScale = timeScale;
+        UpdateTimeScale(1, timeScale);
+    }
+
+    protected virtual void UpdateTimeScale(float prevTimeScale, float newTimeScale)
     {
     }
 
     protected virtual void Update()
     {
+        if (prevFrameTimeScale != timeScale)
+        {
+            UpdateTimeScale(prevFrameTimeScale, timeScale);
+            prevFrameTimeScale = timeScale;
+        }
+
         TimeScaledUpdate(timeScale);
     }
 
@@ -32,7 +44,11 @@ public abstract class TimeScaled : MonoBehaviour
         TimeScaledFixedUpdate(timeScale);
     }
 
-    public abstract void TimeScaledUpdate(float timeScale);
+    public virtual void TimeScaledUpdate(float timeScale)
+    {
+    }
 
-    public abstract void TimeScaledFixedUpdate(float timeScale);
+    public virtual void TimeScaledFixedUpdate(float timeScale)
+    {
+    }
 }
