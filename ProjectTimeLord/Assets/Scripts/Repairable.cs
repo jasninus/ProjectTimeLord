@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(RepairableEditor))]
-public class Repairable : MonoBehaviour, IRewindable
+public class Repairable : MonoBehaviour, IRewindable, IResettable
 {
     [SerializeField] private float repairTime;
 
@@ -20,8 +21,11 @@ public class Repairable : MonoBehaviour, IRewindable
 
     private bool repairing;
 
+    private TransformTimePoint startTP;
+
     private void Awake()
     {
+        startTP = new TransformTimePoint(transform.position, transform.rotation);
         childTransforms = GetComponent<RepairableEditor>().GetChildFixedTransforms();
     }
 
@@ -86,8 +90,8 @@ public class Repairable : MonoBehaviour, IRewindable
     private void FinishRepair()
     {
         SnapPositionsDisableColliders();
-        EnableRequestedComponents();
-        EnableRequestedRigidbodies();
+        SetComponentsActive(true);
+        SetRigidbodiesActive(true);
         CheckAssignRepairParent();
     }
 
@@ -97,22 +101,23 @@ public class Repairable : MonoBehaviour, IRewindable
         {
             childTransforms[i].transform.GetComponent<Collider2D>().enabled = false;
             childTransforms[i].transform.position = childTransforms[i].position;
+            childTransforms[i].transform.rotation = childTransforms[i].rotation;
         }
     }
 
-    private void EnableRequestedComponents()
+    private void SetComponentsActive(bool value)
     {
         for (int i = 0; i < activateOnFinishRepair.Count; i++)
         {
-            activateOnFinishRepair[i].enabled = true;
+            activateOnFinishRepair[i].enabled = value;
         }
     }
 
-    private void EnableRequestedRigidbodies()
+    private void SetRigidbodiesActive(bool value)
     {
         for (int i = 0; i < rigidbodyActivateOnRepair.Count; i++)
         {
-            rigidbodyActivateOnRepair[i].isKinematic = false;
+            rigidbodyActivateOnRepair[i].isKinematic = !value;
             rigidbodyActivateOnRepair[i].velocity = Vector2.zero;
         }
     }
@@ -122,6 +127,42 @@ public class Repairable : MonoBehaviour, IRewindable
         if (repairedParent)
         {
             transform.parent = repairedParent;
+        }
+    }
+
+    public void ResetObject()
+    {
+        SetRigidbodiesActive(false);
+        SetComponentsActive(false);
+        childTransforms[0].transform.GetComponent<TransformRewindReset>().onResetFinish += ResetRubbleRigidbodies;
+    }
+
+    private void ResetRubbleRigidbodies()
+    {
+        for (int i = 0; i < childTransforms.Count; i++)
+        {
+            childTransforms[i].transform.GetComponent<Collider2D>().enabled = true;
+            Rigidbody2D rb = childTransforms[i].transform.GetComponent<Rigidbody2D>();
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.isKinematic = false;
+            rb.velocity = Vector2.zero;
+        }
+
+        childTransforms[0].transform.GetComponent<TransformRewindReset>().onResetFinish -= ResetRubbleRigidbodies;
+        repairing = false;
+
+        ResetPositionRotation();
+    }
+
+    private void ResetPositionRotation()
+    {
+        Transform[] children = transform.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        transform.DetachChildren();
+        transform.position = startTP.position;
+        transform.rotation = startTP.rotation;
+        foreach (Transform child in children)
+        {
+            child.parent = transform;
         }
     }
 }

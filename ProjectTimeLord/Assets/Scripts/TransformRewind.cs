@@ -3,34 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public struct TimePoint
+public struct TransformTimePoint
 {
-    public TimePoint(Vector3 position, Vector3 velocity, Quaternion rotation)
+    public TransformTimePoint(Vector3 position, Quaternion rotation)
     {
         this.position = position;
-        this.velocity = velocity;
         this.rotation = rotation;
     }
 
-    public Vector3 position, velocity;
+    public Vector3 position;
     public Quaternion rotation;
 }
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class TransformRewind : MonoBehaviour, IRewindable
 {
-    [SerializeField] private float maxRewindableSeconds;
+    [SerializeField] protected float maxRewindableSeconds;
 
-    private List<TimePoint> timePoints = new List<TimePoint>();
-
-    private Rigidbody2D rb;
+    protected List<TransformTimePoint> timePoints = new List<TransformTimePoint>();
 
     [SerializeField] private bool isRewinding;
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    public bool IsRewinding => isRewinding;
 
     private void FixedUpdate()
     {
@@ -51,9 +44,14 @@ public class TransformRewind : MonoBehaviour, IRewindable
             return;
         }
 
-        if (timePoints.Count > 0)
+        CheckApplyTimePoint();
+    }
+
+    protected virtual void CheckApplyTimePoint()
+    {
+        if (timePoints.Count > 1)
         {
-            ApplyTimePoint();
+            ApplyTimePoint(timePoints.Last());
             timePoints.RemoveAt(timePoints.Count - 1);
         }
         else
@@ -62,35 +60,44 @@ public class TransformRewind : MonoBehaviour, IRewindable
         }
     }
 
-    private void ApplyTimePoint()
+    protected void ApplyTimePoint(TransformTimePoint tp)
     {
-        TimePoint tp = timePoints.Last();
         transform.position = tp.position;
-        rb.velocity = tp.velocity;
         transform.rotation = tp.rotation;
     }
 
-    public void StartRewind()
+    public virtual void StartRewind()
     {
         isRewinding = true;
-        rb.isKinematic = true;
     }
 
-    public void StopRewind()
+    public virtual void StopRewind()
     {
         isRewinding = false;
-        rb.isKinematic = false;
     }
 
-    private void PushCurrentTimePoint()
+    protected virtual void PushCurrentTimePoint()
     {
         float rewindableFrames = maxRewindableSeconds / Time.fixedDeltaTime;
 
-        if (timePoints.Count >= rewindableFrames)
+        if (timePoints.Count >= rewindableFrames && timePoints.Count > 0)
+        {
+            RemoveOldestTimePoint();
+        }
+
+        AddNewTimePoint();
+    }
+
+    protected virtual void RemoveOldestTimePoint()
+    {
+        if (timePoints.Count > 0)
         {
             timePoints.RemoveAt(0);
         }
+    }
 
-        timePoints.Add(new TimePoint(transform.position, rb.velocity, transform.rotation));
+    protected virtual void AddNewTimePoint()
+    {
+        timePoints.Add(new TransformTimePoint(transform.position, transform.rotation));
     }
 }
