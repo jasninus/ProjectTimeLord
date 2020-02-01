@@ -6,7 +6,8 @@ using UnityEngine.Events;
 [System.Serializable]
 public class StringEvent : UnityEvent<string> { }
 
-public class EventManager : MonoBehaviour {
+public class EventManager : MonoBehaviour
+{
 
     private Dictionary<string, UnityEvent> eventDictionary;
     private Dictionary<string, StringEvent> stringEventDictionary;
@@ -22,7 +23,7 @@ public class EventManager : MonoBehaviour {
                 eventManager = FindObjectOfType(typeof(EventManager)) as EventManager;
 
                 if (!eventManager)
-                   eventManager = new GameObject("EventManager").AddComponent<EventManager>();
+                    eventManager = new GameObject("EventManager").AddComponent<EventManager>();
 
                 if (!eventManager)
                     Debug.LogError("Could not create EventManager");

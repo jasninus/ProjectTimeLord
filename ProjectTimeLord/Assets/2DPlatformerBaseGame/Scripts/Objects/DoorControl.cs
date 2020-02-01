@@ -8,13 +8,13 @@ using UnityEngine;
 
 public class DoorControl : MonoBehaviour
 {
-    [Tooltip("The amount of time the door takes to open.")]
+
     public float timeToOpen = 2f;
-    [Tooltip("The amount of time the door takes to close.")]
+
     public float timeToClose = 2f;
-    [Tooltip("Should the door start closed?")]
+
     public bool startClosed = true;
-    [Tooltip("When the door opens, should it rise or lower?")]
+
     public bool riseToOpen = true;
     
     private float heightOfDoor; // Height of the door's collider to determine the distance it needs to move to open or close.
