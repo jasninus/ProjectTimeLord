@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Cast the ray and store the result in hit
         Vector2 positionToCheck = (Vector2)transform.position + offset;
-        hit = Physics2D.Raycast(positionToCheck, -Vector2.up, 0.55f, layerMask);
+        hit = Physics2D.Raycast(positionToCheck, -Vector2.up, 0.61f, layerMask);
         Debug.DrawRay(positionToCheck, -Vector2.up, Color.red);
         // If the ray hit a collider...
         if (hit.collider != null)
