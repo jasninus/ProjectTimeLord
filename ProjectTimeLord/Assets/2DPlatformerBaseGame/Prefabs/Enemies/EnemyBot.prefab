@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 50684459975978210}
   - component: {fileID: -8808902528658601776}
   - component: {fileID: 4076681237222592126}
+  - component: {fileID: -1402181238865357775}
   m_Layer: 11
   m_Name: EnemyBot
   m_TagString: Untagged
@@ -293,7 +294,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887193121170874}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e24254a49e153541b46ad796f3ca699, type: 3}
   m_Name: 
@@ -329,3 +330,26 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &-1402181238865357775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887193121170874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f7a0115c5e27545b7f2e162c7fef0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  useGravity: 0
+  gravity: 10
+  edgeStop: 1
+  usePatrolBorders: 1
+  patrolLeft: {x: 0, y: 0, z: 0}
+  patrolRight: {x: 0, y: 0, z: 0}
+  contactDamager: {fileID: 0}
+  damagedKnockback: 0
+  knockback: {x: 0, y: 0}
+  flickeringDuration: 0

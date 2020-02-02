@@ -47,34 +47,34 @@ public class Switch : MonoBehaviour
         }
         canTrigger = true;
 
-        EventManager.StartListening("TriggerSwitchReset", TriggerSwitchReset);
+        //EventManager.StartListening("TriggerSwitchReset", TriggerSwitchReset);
     }
 
     private void OnDisable()
     {
-        EventManager.StopListening("TriggerSwitchReset", TriggerSwitchReset);
+        //EventManager.StopListening("TriggerSwitchReset", TriggerSwitchReset);
     }
 
     public void Activate()
     {
         switch (switchType)
         {
-            case SwitchType.binary:
+            /*case SwitchType.binary:
                 index = 1 - index;
                 spriteRenderer.sprite = sprites[index];
                 green = !green;
                 if (green)
-                    EventManager.TriggerEvent(binaryEventToTriggerGreen, triggerTag);
+                    //EventManager.TriggerEvent(binaryEventToTriggerGreen, triggerTag);
                 else
-                    EventManager.TriggerEvent(binaryEventToTriggerRed, triggerTag);
-                break;
+                    //EventManager.TriggerEvent(binaryEventToTriggerRed, triggerTag);
+                break;*/
             case SwitchType.once:
                 spriteRenderer.sprite = sprites[3];
                 on = true;
                 if (canTrigger)
                 {
                     canTrigger = false;
-                    EventManager.TriggerEvent(onceEventToTrigger, triggerTag);
+                    //EventManager.TriggerEvent(onceEventToTrigger, triggerTag);
                 }
                 break;
         }

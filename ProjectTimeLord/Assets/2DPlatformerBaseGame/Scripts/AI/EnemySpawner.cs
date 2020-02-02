@@ -126,7 +126,7 @@ public class Enemy : PoolObject<EnemySpawner, Enemy, Vector2>
         damageable.SetHealth(damageable.startingHealth);
         damageable.DisableInvulnerability();
         enemyBehaviour.contactDamager.EnableDamage();
-        SceneLinkedSMB<EnemyBehaviour>.Initialise(enemyBehaviour.GetComponent<Animator>(), enemyBehaviour);
+        //SceneLinkedSMB<EnemyBehaviour>.Initialise(enemyBehaviour.GetComponent<Animator>(), enemyBehaviour);
         enemyBehaviour.EndAttack();
     }
 
