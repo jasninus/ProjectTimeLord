@@ -12508,6 +12508,7 @@ GameObject:
   - component: {fileID: 284549079}
   - component: {fileID: 284549078}
   - component: {fileID: 284549077}
+  - component: {fileID: 284549082}
   m_Layer: 13
   m_Name: Repairable Box
   m_TagString: Untagged
@@ -12578,6 +12579,7 @@ MonoBehaviour:
   repairedParent: {fileID: 0}
   activateOnFinishRepair:
   - {fileID: 284549078}
+  - {fileID: 284549082}
   rigidbodyActivateOnRepair:
   - {fileID: 284549077}
   repairProgressCurve:
@@ -12677,6 +12679,19 @@ Transform:
   m_Father: {fileID: 2076979395}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &284549082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284549076}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17055a55ee5c91f4483920ba9836e985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabDis: 2
 --- !u!1 &290633947
 GameObject:
   m_ObjectHideFlags: 0
@@ -14163,6 +14178,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1488497468}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &423224767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423224762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4fa709483b2d844589af9b3b7efd93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbedBoxPos: {fileID: 2118361966}
+  throwForce: 10
 --- !u!4 &423224768 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2584701178615644025, guid: d4992d093c5000d4f8f3007f55d3e165,
@@ -33430,6 +33459,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2584701178322737101, guid: d4992d093c5000d4f8f3007f55d3e165,
+        type: 3}
+      propertyPath: freezeBullet
+      value: 
+      objectReference: {fileID: 318907575479981223, guid: df12edd5a76ff754f80d7db5662adfe7,
+        type: 3}
+    - target: {fileID: 2584701178322737101, guid: d4992d093c5000d4f8f3007f55d3e165,
+        type: 3}
+      propertyPath: grabber
+      value: 
+      objectReference: {fileID: 423224767}
     - target: {fileID: 2584701178322737102, guid: d4992d093c5000d4f8f3007f55d3e165,
         type: 3}
       propertyPath: m_SortingOrder
@@ -33453,6 +33493,11 @@ PrefabInstance:
     - target: {fileID: 2584701178615644024, guid: d4992d093c5000d4f8f3007f55d3e165,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584701178615644024, guid: d4992d093c5000d4f8f3007f55d3e165,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2584701178615644025, guid: d4992d093c5000d4f8f3007f55d3e165,
@@ -33493,7 +33538,7 @@ PrefabInstance:
     - target: {fileID: 2584701178615644025, guid: d4992d093c5000d4f8f3007f55d3e165,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2584701178615644025, guid: d4992d093c5000d4f8f3007f55d3e165,
         type: 3}
@@ -37159,6 +37204,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &2118361966 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2584701178322737103, guid: d4992d093c5000d4f8f3007f55d3e165,
+    type: 3}
+  m_PrefabInstance: {fileID: 1488497468}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2126217967
 GameObject:
   m_ObjectHideFlags: 0
