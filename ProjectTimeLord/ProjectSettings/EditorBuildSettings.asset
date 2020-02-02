@@ -6,20 +6,29 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/2DPlatformerBaseGame/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/2DPlatformerBaseGame/Scenes/Start.unity
-    guid: 6c07e62cb5d7e584b86792b136a391d8
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/2DPlatformerBaseGame/Scenes/Develop.unity
-    guid: 3b6114dab679d9f4280dd495828cf300
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/2DPlatformerBaseGame/Scenes/TEST.unity
-    guid: 63a256fc803914a4aa207168d62f18e6
+    path: Assets/Scenes/Menu.unity
+    guid: 87f658d8eb7852f41ae53052dd84b4ad
+  - enabled: 1
+    path: Assets/Scenes/Level.unity
+    guid: 9f3c31fb1212f54429ddef515d48683c
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 0964a278a7a17fe45aa9de587c7e9b43
   - enabled: 1
     path: Assets/Scenes/AyransThingymabob.unity
     guid: a57ed9efad2532e478949d813f4704e0
