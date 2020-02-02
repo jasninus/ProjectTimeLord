@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class FreezeBullet : TimeBullet
 {
-    private static List<Rigidbody2D> frozenObjects = new List<Rigidbody2D>();
+    public static List<Rigidbody2D> frozenObjects = new List<Rigidbody2D>();
+
+    [SerializeField] private float freezeTime = 3;
 
     protected override void Collide(Collision2D other)
     {
@@ -28,6 +30,7 @@ public class FreezeBullet : TimeBullet
                 rb.angularVelocity = 0;
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 frozenObjects.Add(rb);
+                GameObject.FindWithTag("Player").GetComponentInChildren<TimeGun>().StartUnFreeze(rb, freezeTime);
             }
         }
     }

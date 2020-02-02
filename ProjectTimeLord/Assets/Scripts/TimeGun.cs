@@ -47,4 +47,23 @@ public class TimeGun : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(degRot, -80, 80));
         }
     }
+
+    public void StartUnFreeze(Rigidbody2D rb, float freezeTime)
+    {
+        StartCoroutine(UnFreezing(rb, freezeTime));
+    }
+
+    private IEnumerator UnFreezing(Rigidbody2D rb, float freezeTime)
+    {
+        yield return new WaitForSeconds(freezeTime);
+
+        if (rb.gameObject != null)
+        {
+            rb.isKinematic = false;
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0;
+            rb.constraints = RigidbodyConstraints2D.None;
+            FreezeBullet.frozenObjects.Remove(rb);
+        }
+    }
 }
