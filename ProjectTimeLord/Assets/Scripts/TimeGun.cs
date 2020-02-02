@@ -59,6 +59,11 @@ public class TimeGun : MonoBehaviour
         StartCoroutine(UnFreezing(platform, freezeTime));
     }
 
+    public void StartUnFreeze(Orbit o, float freezeTime)
+    {
+        StartCoroutine(UnFreezing(o, freezeTime));
+    }
+
     private IEnumerator UnFreezing(Rigidbody2D rb, float freezeTime)
     {
         yield return new WaitForSeconds(freezeTime);
@@ -86,6 +91,17 @@ public class TimeGun : MonoBehaviour
                 frozen.platform.TimeScale = frozen.unfrozenTimeScale;
                 FreezeBullet.frozenPlatforms.Remove(frozen);
             }
+        }
+    }
+
+    private IEnumerator UnFreezing(Orbit o, float freezeTime)
+    {
+        yield return new WaitForSeconds(freezeTime);
+
+        if (o != null)
+        {
+            o.enabled = true;
+            FreezeBullet.frozenOrbits.Remove(o);
         }
     }
 }
