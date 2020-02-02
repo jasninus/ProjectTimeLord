@@ -22,7 +22,7 @@ public class RigidbodyRewind : TransformRewind
 
     protected new List<RigidbodyTimePoint> timePoints = new List<RigidbodyTimePoint>();
 
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
     private void Awake()
     {
@@ -62,12 +62,18 @@ public class RigidbodyRewind : TransformRewind
         base.StopRewind();
         rb.isKinematic = false;
         SetActiveBehavioursForRewind(true);
+
+        if (timePoints.Count > 0)
+        {
+            rb.velocity = timePoints.Last().velocity;
+        }
     }
 
     protected void ApplyTimePoint(RigidbodyTimePoint tp)
     {
         ApplyTimePoint(tp.transformTimePoint);
-        rb.velocity = tp.velocity;
+        //rb.velocity = tp.velocity;
+        rb.velocity = Vector2.zero;
     }
 
     protected override void PushCurrentTimePoint()
