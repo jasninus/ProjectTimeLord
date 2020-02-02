@@ -697,7 +697,7 @@ namespace BTAI
             }
             else
             {
-                SendSignal.Register(animator, name, this);
+                //SendSignal.Register(animator, name, this);
             }
         }
 
