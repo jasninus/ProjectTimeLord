@@ -14,6 +14,7 @@ public class FreezeBullet : TimeBullet
     }
 
     public static List<FrozenPlatform> frozenPlatforms = new List<FrozenPlatform>();
+    public static List<Orbit> frozenOrbits = new List<Orbit>();
 
     [SerializeField] private float freezeTime = 3;
 
@@ -41,26 +42,45 @@ public class FreezeBullet : TimeBullet
                 frozenObjects.Add(rb);
                 GameObject.FindWithTag("Player").GetComponentInChildren<TimeGun>().StartUnFreeze(rb, freezeTime);
             }
+
+            return;
         }
-        else
+
+        Movingplatform platform = other.gameObject.GetComponent<Movingplatform>();
+
+        if (platform)
         {
-            Movingplatform platform = other.gameObject.GetComponent<Movingplatform>();
+            FrozenPlatform frozen = frozenPlatforms.FirstOrDefault(p => p.platform == platform);
 
-            if (platform)
+            if (frozen.platform != null)
             {
-                FrozenPlatform frozen = frozenPlatforms.FirstOrDefault(p => p.platform == platform);
+                frozen.platform.TimeScale = frozen.unfrozenTimeScale;
+                frozenPlatforms.Remove(frozen);
+            }
+            else
+            {
+                frozenPlatforms.Add(new FrozenPlatform { platform = platform, unfrozenTimeScale = platform.TimeScale });
+                platform.TimeScale = 0;
+                GameObject.FindWithTag("Player").GetComponentInChildren<TimeGun>().StartUnFreeze(platform, freezeTime);
+            }
 
-                if (frozen.platform != null)
-                {
-                    frozen.platform.TimeScale = frozen.unfrozenTimeScale;
-                    frozenPlatforms.Remove(frozen);
-                }
-                else
-                {
-                    frozenPlatforms.Add(new FrozenPlatform { platform = platform, unfrozenTimeScale = platform.TimeScale });
-                    platform.TimeScale = 0;
-                    GameObject.FindWithTag("Player").GetComponentInChildren<TimeGun>().StartUnFreeze(platform, freezeTime);
-                }
+            return;
+        }
+
+        Orbit o = other.gameObject.GetComponent<Orbit>();
+
+        if (o)
+        {
+            if (frozenOrbits.Contains(o))
+            {
+                o.enabled = true;
+                frozenOrbits.Remove(o);
+            }
+            else
+            {
+                frozenOrbits.Add(o);
+                o.enabled = false;
+                GameObject.FindWithTag("Player").GetComponentInChildren<TimeGun>().StartUnFreeze(o, freezeTime);
             }
         }
     }

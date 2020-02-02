@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Credits.unity
     guid: 0964a278a7a17fe45aa9de587c7e9b43
   - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 040c4e29de11dcb4e83027b60c5ce092
+  - enabled: 1
     path: Assets/Scenes/AyransThingymabob.unity
     guid: a57ed9efad2532e478949d813f4704e0
   - enabled: 1
