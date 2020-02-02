@@ -4802,7 +4802,7 @@ GameObject:
   - component: {fileID: 6938662484283061346}
   - component: {fileID: 5050194829071303077}
   - component: {fileID: 5050194829071303079}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FireHydrant
   m_TagString: Untagged
   m_Icon: {fileID: 0}

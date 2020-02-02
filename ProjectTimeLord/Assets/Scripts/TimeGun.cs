@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TimeGun : MonoBehaviour
@@ -53,6 +54,11 @@ public class TimeGun : MonoBehaviour
         StartCoroutine(UnFreezing(rb, freezeTime));
     }
 
+    public void StartUnFreeze(Movingplatform platform, float freezeTime)
+    {
+        StartCoroutine(UnFreezing(platform, freezeTime));
+    }
+
     private IEnumerator UnFreezing(Rigidbody2D rb, float freezeTime)
     {
         yield return new WaitForSeconds(freezeTime);
@@ -64,6 +70,22 @@ public class TimeGun : MonoBehaviour
             rb.angularVelocity = 0;
             rb.constraints = RigidbodyConstraints2D.None;
             FreezeBullet.frozenObjects.Remove(rb);
+        }
+    }
+
+    private IEnumerator UnFreezing(Movingplatform platform, float freezeTime)
+    {
+        yield return new WaitForSeconds(freezeTime);
+
+        if (platform != null)
+        {
+            FreezeBullet.FrozenPlatform frozen = FreezeBullet.frozenPlatforms.FirstOrDefault(p => p.platform == platform);
+
+            if (frozen.platform != null)
+            {
+                frozen.platform.TimeScale = frozen.unfrozenTimeScale;
+                FreezeBullet.frozenPlatforms.Remove(frozen);
+            }
         }
     }
 }

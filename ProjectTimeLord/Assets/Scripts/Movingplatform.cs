@@ -26,6 +26,7 @@ public class Movingplatform : TimeScaled
         }
         return 0;
     }
+
     private int moveRight(float timeScale, float travelDist, Vector3 originalPos)
     {
         if (originalPos.x + travelDist > platform.x && count == 1)
@@ -34,11 +35,12 @@ public class Movingplatform : TimeScaled
             transform.position = platform;
             if (platform.x + tolerance >= originalPos.x + travelDist)
             {
-                return count--; 
+                return count--;
             }
         }
         return 1;
     }
+
     private int moveUp(float timeScale, float travelDist, Vector3 originalPos)
     {
         if (originalPos.y + travelDist > platform.y && count == 0)
@@ -52,6 +54,7 @@ public class Movingplatform : TimeScaled
         }
         return 0;
     }
+
     private int moveDown(float timeScale, float travelDist, Vector3 originalPos)
     {
         if (originalPos.y - travelDist < platform.y && count == 1)
@@ -65,6 +68,7 @@ public class Movingplatform : TimeScaled
         }
         return 1;
     }
+
     private int moveDiagRight(float timeScale, float travelDist, Vector3 originalPos, int specficiDirectionY)
     {
         if (originalPos.y + travelDist > platform.y && count == 0)
@@ -87,6 +91,7 @@ public class Movingplatform : TimeScaled
         }
         return 0;
     }
+
     private int moveDiagLeft(float timeScale, float travelDist, Vector3 originalPos, int specficiDirectionY)
     {
         if (originalPos.y - travelDist < platform.y && count == 1)
@@ -109,21 +114,25 @@ public class Movingplatform : TimeScaled
         }
         return 1;
     }
+
     private void moveLeftRight(float timeScale, float travelDist, Vector3 originalPos)
     {
         moveLeft(timeScale, travelDist, originalPos);
         moveRight(timeScale, travelDist, originalPos);
     }
+
     private void moveUpDown(float timeScale, float travelDist, Vector3 originalPos)
     {
         moveUp(timeScale, travelDist, originalPos);
         moveDown(timeScale, travelDist, originalPos);
     }
+
     private void moveDiagBotLeftTopRight(float timeScale, float travelDist, Vector3 originalPos, int specficiDirectionX, int specficiDirectionY)
     {
         moveDiagLeft(timeScale, travelDist, originalPos, specficiDirectionY);
         moveDiagRight(timeScale, travelDist, originalPos, specficiDirectionX);
     }
+
     private void moveDiagBotRightTopLeft(float timeScale, float travelDist, Vector3 originalPos, int specficiDirectionX, int specficiDirectionY)
     {
         moveDiagLeft(timeScale, travelDist, originalPos, specficiDirectionY);
@@ -159,15 +168,11 @@ public class Movingplatform : TimeScaled
                 moveDiagBotRightTopLeft(timeScale, travelDist, originalPos, 1, 1);
             }
         }
-        
-
-
-        
     }
 
     public override void TimeScaledUpdate(float timeScale)
     {
-
     }
-// for diagonal ones use input
+
+    // for diagonal ones use input
 }
