@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RigidbodyRewindReset : RigidbodyRewind
+public class RigidbodyRewindReset : RigidbodyRewind, IResettable
 {
     private List<TransformTimePoint> resetTimePoints = new List<TransformTimePoint>();
 
@@ -37,6 +37,8 @@ public class RigidbodyRewindReset : RigidbodyRewind
         onResetFinish?.Invoke();
         resetTimePoints.Clear();
         timePoints.Clear();
+        rb.isKinematic = false;
+        rb.constraints = RigidbodyConstraints2D.None;
     }
 
     protected override void RemoveOldestTimePoint()

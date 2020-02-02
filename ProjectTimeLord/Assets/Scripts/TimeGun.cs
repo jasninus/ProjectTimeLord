@@ -39,12 +39,12 @@ public class TimeGun : MonoBehaviour
 
         if (Math.Abs(wielderTransform.rotation.eulerAngles.y - 180) < 0.01f)
         {
-            transform.rotation = Quaternion.Euler(0, 0, degRot >= 90 ? Mathf.Clamp(degRot, 90, 180) :
-                                                                       Mathf.Clamp(degRot, -180, -90));
+            transform.rotation = Quaternion.Euler(0, 0, degRot >= 0 ? Mathf.Clamp(degRot, 100, 180) :
+                                                                       Mathf.Clamp(degRot, -180, -100));
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(degRot, -90, 90));
+            transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(degRot, -80, 80));
         }
     }
 }

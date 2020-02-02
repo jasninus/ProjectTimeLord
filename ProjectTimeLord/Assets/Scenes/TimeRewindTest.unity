@@ -974,6 +974,7 @@ MonoBehaviour:
   - {fileID: 194081031}
   - {fileID: 1123553232}
   - {fileID: 1426926274}
+  - {fileID: 43195484}
   testReset: 0
 --- !u!4 &313636175
 Transform:
@@ -9430,7 +9431,7 @@ PrefabInstance:
     - target: {fileID: 7508997846715694357, guid: fa99aebd865133e49a242663127d8af5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.1
+      value: -7.64
       objectReference: {fileID: 0}
     - target: {fileID: 7508997846715694357, guid: fa99aebd865133e49a242663127d8af5,
         type: 3}
