@@ -5,9 +5,11 @@ using UnityEngine;
 public class Parallaxing : MonoBehaviour
 {
     [SerializeField] private Transform[] allBackgrounds;
+    [SerializeField] private float[] parallaxScales;
+
     private Transform camRef;
     private Vector3 prevCamPos;
-    private float[] parallaxScales;
+    //private float[] parallaxScales;
     public float smoothing = 1f;
 
     void Awake()
@@ -18,12 +20,12 @@ public class Parallaxing : MonoBehaviour
     void Start()
     {
         prevCamPos = camRef.position;
-        parallaxScales = new float[allBackgrounds.Length];
+        //parallaxScales = new float[allBackgrounds.Length];
 
-        for (int i = 0; i < allBackgrounds.Length; i++)
-        {
-            parallaxScales[i] = allBackgrounds[i].position.z * -1;
-        }
+        //for (int i = 0; i < allBackgrounds.Length; i++)
+        //{
+        //    parallaxScales[i] = allBackgrounds[i].position.z * -1;
+        //}
     }
 
     void Update()
