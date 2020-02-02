@@ -44,6 +44,13 @@ public class Repairable : MonoBehaviour, IRewindable, IResettable
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             rb.isKinematic = true;
             rb.velocity = Vector2.zero;
+
+            TrailRenderer trail = childTransforms[i].transform.GetComponent<TrailRenderer>();
+
+            if (trail)
+            {
+                trail.emitting = true;
+            }
         }
 
         StartCoroutine(Repairing());
@@ -93,6 +100,56 @@ public class Repairable : MonoBehaviour, IRewindable, IResettable
         SetComponentsActive(true);
         SetRigidbodiesActive(true);
         CheckAssignRepairParent();
+        FadeTrailsOut();
+    }
+
+    private void FadeTrailsOut()
+    {
+        for (int i = 0; i < childTransforms.Count; i++)
+        {
+            TrailRenderer trail = childTransforms[i].transform.GetComponent<TrailRenderer>();
+
+            if (trail)
+            {
+                StartCoroutine(FadingTrailOut(trail, 0.01f));
+            }
+        }
+    }
+
+    private IEnumerator FadingTrailOut(TrailRenderer trail, float alphaDecrease)
+    {
+        yield return null;
+
+        while (!IsTransparent(trail.colorGradient))
+        {
+            for (int i = 0; i < trail.colorGradient.alphaKeys.Length; i++)
+            {
+                Gradient gradient = trail.colorGradient;
+                GradientAlphaKey key = gradient.alphaKeys[i];
+                key.alpha -= alphaDecrease;
+                GradientAlphaKey[] arr = gradient.alphaKeys;
+                arr[i] = key;
+                gradient.SetKeys(gradient.colorKeys, arr);
+                trail.colorGradient = gradient;
+            }
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        trail.emitting = false;
+    }
+
+    private bool IsTransparent(Gradient gradient)
+    {
+        foreach (var alphaKey in gradient.alphaKeys)
+        {
+            if (Math.Abs(alphaKey.alpha) > 0.01f)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private void SnapPositionsDisableColliders()
