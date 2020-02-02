@@ -6,15 +6,14 @@ using UnityEngine.Events;
 
 public class Damager : MonoBehaviour
 {
-
-	[Serializable]
+    [Serializable]
     public class DamageableEvent : UnityEvent<Damager, Damageable> { }
 
     [Serializable]
     public class NonDamageableEvent : UnityEvent<Damager> { }
 
     protected Collider2D lastHit;
-    public Collider2D LastHit { get { return lastHit; } }
+    public Collider2D LastHit => lastHit;
 
     public int damage = 1;
     public Vector2 offset = Vector2.zero;
@@ -35,7 +34,7 @@ public class Damager : MonoBehaviour
     protected Collider2D[] attackOverlapResults = new Collider2D[10];
     protected Transform damagerTransform;
 
-    void Awake()
+    private void Awake()
     {
         attackContactFilter.layerMask = hittableLayers;
         attackContactFilter.useLayerMask = true;
@@ -57,7 +56,7 @@ public class Damager : MonoBehaviour
         canDamage = false;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (!canDamage)
             return;

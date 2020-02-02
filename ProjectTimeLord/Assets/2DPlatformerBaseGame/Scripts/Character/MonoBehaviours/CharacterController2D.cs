@@ -74,7 +74,8 @@ public class CharacterController2D : MonoBehaviour
         previousPosition = rigidbody.position;
         currentPosition = previousPosition + nextMovement;
         Velocity = (currentPosition - previousPosition) / Time.deltaTime;
-        rigidbody.MovePosition(currentPosition);
+        //rigidbody.MovePosition(currentPosition);
+        //rigidbody.velocity = nextMovement;
         nextMovement = Vector2.zero;
 
         CheckCapsuleEndCollisions();

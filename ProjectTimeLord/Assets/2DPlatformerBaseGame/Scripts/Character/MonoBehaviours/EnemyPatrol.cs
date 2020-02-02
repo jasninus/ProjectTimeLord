@@ -99,7 +99,8 @@ public class EnemyPatrol : MonoBehaviour
         else
             moveVector.x = 0;
 
-        characterController2D.Move(moveVector * Time.deltaTime);
+        //characterController2D.Move(moveVector * Time.deltaTime);
+        rigidbody2D.velocity = new Vector2(moveVector.x, rigidbody2D.velocity.y);
     }
 
     private void UpdateFacing(bool faceLeft)

@@ -5,26 +5,30 @@ using UnityEngine;
 
 public class TimeGun : MonoBehaviour
 {
-    private enum FiringMode
-    {
-        Slow,
-        Freeze,
-        Rewind
-    }
-
-    [SerializeField] private GameObject slowBullet, freezeBullet, rewindBullet;
+    [SerializeField] private GameObject freezeBullet, rewindBullet;
 
     [SerializeField] private Transform bulletSpawn;
 
     [SerializeField] private Transform wielderTransform;
 
+    [SerializeField] private BoxGrabber grabber;
+
     private void Update()
     {
+        if (grabber.IsGrabbing)
+        {
+            return;
+        }
+
         LookAtMouse();
 
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(rewindBullet, bulletSpawn.position, bulletSpawn.rotation);
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            Instantiate(freezeBullet, bulletSpawn.position, bulletSpawn.rotation);
         }
     }
 
@@ -35,14 +39,8 @@ public class TimeGun : MonoBehaviour
 
         if (Math.Abs(wielderTransform.rotation.eulerAngles.y - 180) < 0.01f)
         {
-            if (degRot >= 90)
-            {
-                transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(degRot, 90, 180));
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(degRot, -180, -90));
-            }
+            transform.rotation = Quaternion.Euler(0, 0, degRot >= 90 ? Mathf.Clamp(degRot, 90, 180) :
+                                                                       Mathf.Clamp(degRot, -180, -90));
         }
         else
         {

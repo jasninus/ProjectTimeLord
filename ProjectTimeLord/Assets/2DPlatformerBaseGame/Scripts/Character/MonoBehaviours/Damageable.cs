@@ -24,6 +24,7 @@ public class Damageable : MonoBehaviour, IDataPersister
     public HealEvent OnGainHealth;
     public DamageEvent OnTakeDamage;
     public DamageEvent OnDie;
+
     [HideInInspector]
     public DataSettings dataSettings;
 
@@ -33,12 +34,9 @@ public class Damageable : MonoBehaviour, IDataPersister
     protected Vector2 damageDirection;
     protected bool resetHealthOnSceneReload;
 
-    public int CurrentHealth
-    {
-        get { return currentHealth; }
-    }
+    public int CurrentHealth => currentHealth;
 
-    void OnEnable()
+    private void OnEnable()
     {
         PersistentDataManager.RegisterPersister(this);
         currentHealth = startingHealth;
@@ -48,12 +46,12 @@ public class Damageable : MonoBehaviour, IDataPersister
         DisableInvulnerability();
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         PersistentDataManager.UnregisterPersister(this);
     }
 
-    void Update()
+    private void Update()
     {
         if (invulnerable)
         {
@@ -61,6 +59,7 @@ public class Damageable : MonoBehaviour, IDataPersister
 
             if (invulnerabilityTimer <= 0f)
             {
+                Debug.Log("Disabling invincibility");
                 invulnerable = false;
             }
         }
@@ -74,6 +73,7 @@ public class Damageable : MonoBehaviour, IDataPersister
 
     public void DisableInvulnerability()
     {
+        Debug.Log("Disabling invincibility");
         invulnerable = false;
     }
 
@@ -82,7 +82,7 @@ public class Damageable : MonoBehaviour, IDataPersister
         return damageDirection;
     }
 
-    public void TakeDamage(Damager damager, bool ignoreInvincible = false)
+    public virtual void TakeDamage(Damager damager, bool ignoreInvincible = false)
     {
         if ((invulnerable && !ignoreInvincible) || currentHealth <= 0)
         {
@@ -93,6 +93,7 @@ public class Damageable : MonoBehaviour, IDataPersister
         {
             currentHealth -= damager.damage;
             OnHealthSet.Invoke(this);
+            EnableInvulnerability();
         }
 
         damageDirection = transform.position + (Vector3)centerOffset - damager.transform.position;
@@ -105,7 +106,6 @@ public class Damageable : MonoBehaviour, IDataPersister
         {
             OnDie.Invoke(damager, this);
             resetHealthOnSceneReload = true;
-            EnableInvulnerability();
             if (disableOnDeath)
             {
                 gameObject.SetActive(false);
