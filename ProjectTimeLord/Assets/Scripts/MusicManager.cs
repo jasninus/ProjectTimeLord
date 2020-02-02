@@ -9,26 +9,29 @@ public class MusicManager : MonoBehaviour
 {
     public AudioSource[] audioTracks;
     public Animator musicAnim, musicAnim2;
+    public string levelOneName, levelTwoName;
 
     private void Awake()
     {
         audioTracks[0].Play();
         audioTracks[1].Play();
+        SceneManager.activeSceneChanged += SceneChanged;
     }
 
-    private void Update()
+    private void SceneChanged(Scene prev, Scene current)
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        //current.buildIndex // TODO cool stuff
+        if (current.name == levelOneName)
         {
             musicAnim.SetTrigger("fadeOut");
             musicAnim2.SetTrigger("fadeIn2");
         }
-        if (Input.GetKeyDown(KeyCode.L))
+        if (current.name == levelTwoName)
         {
             musicAnim.SetTrigger("fadeIn");
             musicAnim2.SetTrigger("fadeOut2");
         }
-
+        Debug.Log(current.name);
     }
 
 }

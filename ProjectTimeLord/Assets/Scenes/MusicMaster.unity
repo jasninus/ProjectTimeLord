@@ -379,7 +379,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b063af2f4132dae42a0f4a2a9f507d31, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -479,7 +479,7 @@ MonoBehaviour:
   - {fileID: 1294782890}
   - {fileID: 1717598305}
   musicAnim: {fileID: 1294782892}
-  musicAnim2: {fileID: 0}
+  musicAnim2: {fileID: 1717598307}
 --- !u!95 &1294782892
 Animator:
   serializedVersion: 3
@@ -608,6 +608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1717598306}
   - component: {fileID: 1717598305}
+  - component: {fileID: 1717598307}
   m_Layer: 0
   m_Name: songStorageOne
   m_TagString: Untagged
@@ -627,7 +628,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 25a9da3ac21a5d641a515596070d0e68, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -725,6 +726,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1717598307
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717598304}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f94c6e4b3af4b0842814d39c5eef440c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1224232477659618844
 PrefabInstance:
   m_ObjectHideFlags: 0

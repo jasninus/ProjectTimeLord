@@ -5,7 +5,6 @@ using UnityEngine;
 public class PersistantManagerScript : MonoBehaviour
 {
     public static PersistantManagerScript instance { get; private set; }
-    public int value;
 
     private void Awake()
     {
@@ -16,7 +15,7 @@ public class PersistantManagerScript : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }
