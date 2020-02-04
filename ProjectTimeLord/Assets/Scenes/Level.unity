@@ -31280,7 +31280,7 @@ PrefabInstance:
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 468311736, guid: fa99aebd865133e49a242663127d8af5, type: 3}
       propertyPath: m_RenderMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 468311736, guid: fa99aebd865133e49a242663127d8af5, type: 3}
       propertyPath: m_Mesh
@@ -31309,7 +31309,7 @@ PrefabInstance:
     - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ed140471eb507264aaf2cade2c711103,
+      objectReference: {fileID: 21300000, guid: f0cc6296bbdeba64bafbe1ea7d117867,
         type: 3}
     - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
       propertyPath: UVModule.frameOverTime.scalar
