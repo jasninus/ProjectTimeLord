@@ -31274,6 +31274,111 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 468311736, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 468311736, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311736, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 468311736, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: m_SortMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311736, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: m_AllowRoll
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: UVModule.frameOverTime.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: UVModule.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ed140471eb507264aaf2cade2c711103,
+        type: 3}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: UVModule.frameOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: UVModule.timeMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: ForceModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: SizeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: ForceModule.y.scalar
+      value: -12.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: ForceModule.x.scalar
+      value: -5.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: ForceModule.x.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: ForceModule.y.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: ForceModule.z.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: ForceModule.x.minScalar
+      value: 5.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: ForceModule.y.minScalar
+      value: -3.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: ShapeModule.type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 468311737, guid: fa99aebd865133e49a242663127d8af5, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6938662484283061346, guid: fa99aebd865133e49a242663127d8af5,
         type: 3}
       propertyPath: m_SortingOrder
@@ -31341,28 +31446,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa99aebd865133e49a242663127d8af5, type: 3}
---- !u!1 &904013968 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8546082137578662445, guid: fa99aebd865133e49a242663127d8af5,
-    type: 3}
-  m_PrefabInstance: {fileID: 904013967}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &904013969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 904013968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a738fcfc240f3a940bcbaf4a46767854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fixedSprite: {fileID: -3062486835590830950, guid: b823ba548eb450c4697ba10c3733615b,
-    type: 3}
-  particle: {fileID: 0}
-  waterColl: {fileID: 0}
 --- !u!4 &904013973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7508997846715694357, guid: fa99aebd865133e49a242663127d8af5,
